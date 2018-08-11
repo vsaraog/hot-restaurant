@@ -4,10 +4,15 @@ var path = require("path");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
-const HOMEPAGE = "index.html";
+const HOMEPAGE = "Home.html";
+const TABLES = "Tables.html";
 
 app.get("/", (req, resp) => {
-    res.sendFile(path.join(__dirname, HOMEPAGE))
+    res.sendFile(path.join(__dirname, HOMEPAGE));
+})
+
+app.get("/Tables", (req, resp) => {
+    res.sendFile(path.join(__dirname, TABLES));
 })
 
 // Sets up the Express app to handle data parsing
