@@ -10,7 +10,58 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </head>
         <body>
-            <h1>MAKE A RESERVATION!</h1>
+            <div class="jumbotron">
+                    <h1 class="text-center"><span class="glyphicon glyphicon-fire"></span> Private Restaurant</h1>
+                    <hr>
+                    <h2 class="text-center">We only have 5 tables! Book your seat before they all are gone!</h2>
+                    <br>
+        
+                    <div class="text-center">
+                        <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
+                        <a href="/reserve"><button type="button" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-credit-card"></span> Make Reservation</button></a>
+                    </div>
+        
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                          <!-- Reservation Page -->
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h4 class="panel-title">Table Reservation</h4>
+                            </div>
+                            <div class="panel-body m-auto">
+                  
+                              <form role="form">
+                  
+                                <div class="form-group">
+                                  <label for="reserve-name">Name</label>
+                                  <input type="text" class="form-control" id="reserve-name">
+                                </div>
+                  
+                                <div class="form-group">
+                                  <label for="reserve-phone">Phone Number</label>
+                                  <input type="text" class="form-control" id="reserve-phone">
+                                </div>
+                  
+                                <div class="form-group">
+                                  <label for="reserve-email">Email</label>
+                                  <input type="text" class="form-control" id="reserve-email">
+                                </div>
+                  
+                                <div class="form-group">
+                                  <label for="reserve-unique-id">Unique ID</label>
+                                  <input type="text" class="form-control" id="reserve-unique-id">
+                                </div>
+                  
+                                <button type="submit" class="btn btn-primary submit">Submit</button>
+                              </form>
+                  
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
             <script>
             </script>
         </body>
