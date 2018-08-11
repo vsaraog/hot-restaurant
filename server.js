@@ -23,16 +23,24 @@ var reservation = [ {
 }];
 
 app.get("/", (req, resp) => {
-    res.sendFile(path.join(__dirname, HOMEPAGE));
+    resp.sendFile(path.join(__dirname, HOMEPAGE));
 })
 
 app.get("/Tables", (req, resp) => {
     console.log("Tables request");
-
-    res.sendFile(path.join(__dirname, TABLES));
     resp.json(reservation);
     resp.json(waitlist);
+    resp.sendFile(path.join(__dirname, TABLES));
+
 })
+
+// app.get("/current/reservation", (req, resp) => {
+//     resp.json(reservation);
+// })
+
+// app.get("/current/waitlist", (req, resp) => {
+//     resp.json(waitlist);
+// })
 
 app.post("/api/reservations", (req, res) =>  { 
     var newReservation = req.body;
