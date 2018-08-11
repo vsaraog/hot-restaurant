@@ -26,7 +26,7 @@ app.get("/", (req, resp) => {
     resp.sendFile(path.join(__dirname, HOMEPAGE));
 })
 
-app.get("/Tables", (req, resp) => {
+app.get("/tables", (req, resp) => {
     console.log("Tables request");
     resp.json(reservation);
     resp.json(waitlist);
@@ -42,7 +42,7 @@ app.get("/Tables", (req, resp) => {
 //     resp.json(waitlist);
 // })
 
-app.post("/api/reservations", (req, res) =>  { 
+app.get("/reserve", (req, res) =>  { 
     var newReservation = req.body;
     newReservation.reservationNumber = getReservationCount();
     if (reservation.length < MAX_RESERVATION) {

@@ -63,6 +63,23 @@
                       </div>
 
             <script>
+                 // Question: What does this code do?
+                $(".submit").on("click", function(event) {
+                event.preventDefault();
+                var newReseervation = {
+                    name: $("#reserve-name").val().trim(),
+                    phone: $("#reserve-phone").val().trim(),
+                    email: $("#reserve-email").val().trim(),
+                    uid: $("#reserve-unique-id").val().trim()
+                };
+
+                // Question: What does this code do??
+                $.post("/api/reserve", newReservation)
+                    .then(function(data) {
+                    console.log("add.html", data);
+                    alert("Adding reservation...");
+                    });
+                });
             </script>
         </body>
     </html>
