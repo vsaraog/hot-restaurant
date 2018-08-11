@@ -36,10 +36,10 @@ app.get("/tables", (req, resp) => {
 
 })
 
-app.get("/reserve", (req, resp) => {
-    console.log("Reserve page requested");
-    resp.sendFile(path.join(__dirname, RESERVE));
-})
+// app.get("/reserve", (req, resp) => {
+//     console.log("Reserve page requested");
+//     resp.sendFile(path.join(__dirname, RESERVE));
+// })
 
 app.get("/reserve", (req, res) =>  { 
     var newReservation = req.body;

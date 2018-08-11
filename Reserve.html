@@ -66,7 +66,7 @@
                  // Question: What does this code do?
                 $(".submit").on("click", function(event) {
                 event.preventDefault();
-                var newReseervation = {
+                var newReservation = {
                     name: $("#reserve-name").val().trim(),
                     phone: $("#reserve-phone").val().trim(),
                     email: $("#reserve-email").val().trim(),
@@ -74,7 +74,7 @@
                 };
 
                 // Question: What does this code do??
-                $.post("/api/reserve", newReservation)
+                $.post("/reserve", newReservation)
                     .then(function(data) {
                     console.log("add.html", data);
                     alert("Adding reservation...");
