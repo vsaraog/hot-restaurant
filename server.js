@@ -26,7 +26,7 @@ app.get("/", (req, resp) => {
     resp.sendFile(path.join(__dirname, HOMEPAGE));
 })
 
-app.get("/Table", (req, resp) => {
+app.get("/Tables", (req, resp) => {
     console.log("Tables request");
     resp.json(reservation);
     resp.json(waitlist);
