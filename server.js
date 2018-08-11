@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 
 const HOMEPAGE = "Home.html";
 const TABLES = "Tables.html";
+const RESERVE = "Reserve.html";
+
 const MAX_RESERVATION = 5;
 
 var waitlist = [];
@@ -34,13 +36,10 @@ app.get("/Tables", (req, resp) => {
 
 })
 
-// app.get("/current/reservation", (req, resp) => {
-//     resp.json(reservation);
-// })
-
-// app.get("/current/waitlist", (req, resp) => {
-//     resp.json(waitlist);
-// })
+app.get("/reserve", (req, resp) => {
+    console.log("Reserve page requested");
+    resp.sendFile(path.join(__dirname, RESERVE));
+})
 
 app.post("/api/reservations", (req, res) =>  { 
     var newReservation = req.body;
