@@ -36,13 +36,13 @@ app.get("/tables", (req, resp) => {
 
 })
 
-// app.get("/reserve", (req, resp) => {
-//     console.log("Reserve page requested");
-//     resp.sendFile(path.join(__dirname, RESERVE));
-// })
+app.get("/reserve", (req, resp) => {
+    console.log("Reserve page requested");
+    resp.sendFile(path.join(__dirname, RESERVE));
+})
 
-app.get("/reserve", (req, res) =>  { 
-    var newReservation = req.body;
+app.get("/reserve/:newReservation", (req, res) =>  { 
+    var newReservation = req.params.newReservation;
     newReservation.reservationNumber = getReservationCount();
     if (reservation.length < MAX_RESERVATION) {
         reservation.push(newReservation);
@@ -50,8 +50,25 @@ app.get("/reserve", (req, res) =>  {
         waitlist.push(newReservation); 
     }
     console.log(newReservation);
-    res.json(newReservation);
+    return res.json(newReservation);
 });
+
+app.post("/reserve", (req, res) => {
+    // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body-parser middleware
+  var newReservation = req.body;
+
+  // Using a RegEx Pattern to remove spaces from newCharacter
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newReservation);
+
+  reservation.push(newReservation);
+
+  res.json(newReservation);
+
+})
 
 function getReservationCount() {
     return reservation.length + waitlist.length;
